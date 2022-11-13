@@ -22,7 +22,30 @@
 1)git clone https://github.com/BenitoSwaggolini/Geocode.git
 
 2)docker-compose up -d
+ 
+ 
+ ##API:
+ 
+http://127.0.0.1:8000/get_address/?='settings'
+ ? geocode=<string> - запрос или координаты
 
+
+
+ 
+
+
+ & [lang=<string>]
+&kind=	
+Только если в параметре geocode указаны координаты. Вид необходимого топонима.
+Список допустимых значений:
+house — дом;
+street — улица;
+metro — станция метро;
+district — район города;
+locality — населенный пункт (город/поселок/деревня/село/...).
+Если параметр не задан, API выберет тип топонима автоматически.
+ 
+ 
 
 
 
