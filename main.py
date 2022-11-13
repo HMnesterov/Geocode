@@ -1,8 +1,8 @@
 from fastapi import FastAPI, Request
+from settings import yandex_key, db
 import requests
 
 app = FastAPI()
-yandex_key = 'YOUR YANDEX KEY'
 
 
 @app.get("/get_address")
@@ -13,15 +13,12 @@ def accept_coords(request: Request):
         link += f'&{key}={value}'
 
     data = requests.get(link)
-
     try:
         data = data.json()
+        db.setex(name=request, value=data, time=60 * 60)
 
         return data
     except:
         return {'Got Error!': 'oh..'}
 
-
-@app.get("/items/{item_id}")
-def accept(item_id: int, q):
-    return {"item_id": item_id, "q": q}
+# uvicorn main:app --reload

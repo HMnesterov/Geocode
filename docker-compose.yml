@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  redis:
+    container_name: redis
+    image: redis:alpine
+    command:
+      - redis-server
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+  fastapi:
+
+      build: .
+      command:  bash -c "uvicorn main:app --reload"
