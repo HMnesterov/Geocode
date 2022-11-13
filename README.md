@@ -17,6 +17,14 @@
 
 4)run "uvicorn main:app --reload"
 
+##Docker: 
+
+1)git clone https://github.com/BenitoSwaggolini/Geocode.git
+
+2)docker-compose up -d
+
+
+
 
 Тестовое задание на позицию `backend` разработчика.
 
