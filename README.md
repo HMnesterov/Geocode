@@ -1,6 +1,23 @@
 # Geocode
 # Сервис геокодирования 🗺️
 
+
+
+## To get started:
+
+
+###1)use git clone https://github.com/BenitoSwaggolini/Geocode.git
+
+
+###2)run pip install -r requirements.txt
+
+
+###3) Set your own yandex key in the main.py 
+
+
+###4)run "uvicorn main:app --reload"
+
+
 Тестовое задание на позицию `backend` разработчика.
 
 ## Задача
