@@ -1,14 +1,25 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 import requests
-app = FastAPI()
-yandex_key = '719cebe3-bb23-45a1-8bd7-8e4e1e5e8185'
 
-@app.get("/get_address/{address}")
-def accept_coords(address):
-    link = f"https://geocode-maps.yandex.ru/1.x/?apikey={yandex_key}&geocode={address}"
+app = FastAPI()
+yandex_key = 'YOUR YANDEX KEY'
+
+
+@app.get("/get_address")
+def accept_coords(request: Request):
+    url = request.query_params
+    link = f"https://geocode-maps.yandex.ru/1.x/?apikey={yandex_key}&format=json"
+    for key, value in url.items():
+        link += f'&{key}={value}'
+
     data = requests.get(link)
-    data = data.json()
-    return data
+
+    try:
+        data = data.json()
+
+        return data
+    except:
+        return {'Got Error!': 'oh..'}
 
 
 @app.get("/items/{item_id}")
