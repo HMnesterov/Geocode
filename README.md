@@ -12,7 +12,7 @@
 2)run pip install -r requirements.txt
 
 
-3) Set your own yandex key in the main.py 
+3)Set your own yandex key in the main.py 
 
 
 4)run "uvicorn main:app --reload"
